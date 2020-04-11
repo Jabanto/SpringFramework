@@ -1,0 +1,69 @@
+
+Sprinhg _01
+
+In diesem Tutorial zeige ich ein Beispiel mit einer Spring Boot Webanwendung.
+Diese Webanwendung ist eine einfache und unvollständige Wertpapierverwaltung
+mit Datenbankzugriffen (JPA) auf Basis von Spring Boot
+
+Was ist Spring Boot?
+
+Mit Spring Boot können autonomen Java Anwendungen (JAR) erstellt werden
+Die erstellten Programme beinhalten alle benötigten Komponenten und Bibliotheken. 
+Der Webserver wird, wie in diesem Beispiel, vorkonfiguriert in die Anwendung integriert (Auto-configuration).
+
+Durch das Verwenden des Paradigmas Konvention vor Konfiguration kommt die Anwendungen ohne XML-Konfiguration aus (JavaConfig).
+
+Gesteuert wird der Zusammenbau der Spring Boot Webanwendung durch das Buildsystem Apache Maven mit einem speziellen Plug-in von Spring.
+
+Spring Boot eignet sich auf Grund dieser genannten Eigenschaften hervorragend als Grundlage für Microservices oder Self-contained Systems (SCS).
+
+Durch die genannten Eigenschaften werden folgende Ziele mit von Spring Boot erreicht.
+
+    -Schnelleres Aufsetzen von Spring Projekten durch Vereinfachungen.
+    -Out-of-the-box Verhalten durch Autokonfigurationen mit sinnvollen Anfangswerten.
+    -Nichtfunktionale Features werden bereitgestellt.
+
+Die Komponenten der Spring Boot Webanwendung
+
+Bei diesem Beispiel werden die folgenden (Spring-) Komponenten eingesetzt.
+
+    Spring Boot für die Autokonfiguration und das Self-Containment
+    Spring Data JPA mit Hibernate ORM und der Datenbank H2
+        Weitergehende Informationen zum Thema in meinem Beitrag Spring mit JPA und Hibernate (Tutorial)
+    Spring MVC für die Steuerung der Oberfläche
+    Thymeleaf als HTML5 Template Engine mit dem CSS Framework Bootstrap
+        Als embedded Webserver wird der Apache Tomcat verwendet
+    Java SE 8 mit Apache Maven und Eclipse IDE
+
+Das Spring Framework wird natürlich als Basis eingesetzt. Das Beispiel wurde zusätzlich mit meinen Erfahrungen aus laufenden Projekten angereichert.
+
+
+#Wie starte ich?
+
+Um eine Spring Boot Webanwendung zu Erstellen bieten sich die folgenden Möglichkeiten an.
+
+    Der Webservice Spring Initializr.
+    Ein Maven Projekt im Eigenbau.
+
+#Was ist Spring Initializr?
+
+Über die bereits erwähnte Weboberfläche können wir ein Spring Boot Projekt komfortabel zusammengestellen und als fertige Projektvorlage herunterladen.
+ Die Weboberfläche ist auch in der Spring Tool Suite (STS) integriert.
+
+
+#Wie wird ein Spring Boot Projekt mit Maven im Eigenbau erstellt?
+
+Dieses Beispiel einer Spring Boot Webanwendung verwendet eine hierarchische Projektstruktur und ist in meinem Git  Repository microservices auf GitHub veröffentlicht.
+
+In der obersten Maven pom.xml wird die Referenz auf das Parent-POM (Project Object Modell) von Spring Boot spring-boot-starter-parent gesetzt. Durch diese Parent-POM wird auch die POM der Spring Boot Dependencies referenziert. In dieser POM werden alle Abhängigkeiten von Spring Boot verwaltet, die in den einzelnen Spring Modulen verwendet werden können – insbesondere die von Drittherstellern.
+
+Zu Abschluss muss noch das Maven Plug-in von Spring Boot für die Erstellung der Spring Boot Webanwendung konfiguriert werden. Dieses wird im Modul securities-management/server-web durchgeführt. In diesem Modul befindet sich der ausführbare Teil der Spring Boot Webanwendung.
+
+Dieses waren die wichtigsten Elemente aus der Maven Konfiguration. Die übrigen Einstellungen sind technologie- oder projektspezifisch.
+
+so viel für Heute näschte Video wie analizieren weiter das main Methoden
+bis bald und haupreim
+
+
+
+

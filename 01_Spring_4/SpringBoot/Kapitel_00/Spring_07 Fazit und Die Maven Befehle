@@ -1,0 +1,33 @@
+Spring_07 Fazit und Die Maven Befehle
+
+1.Eclipse Konfiguration neu erzeugen:
+$ mvn eclipse:clean eclipse:eclipse
+
+2. Anwendung bauen:
+$ mvn clean package
+
+Anwendung ausführen:
+	
+$ cd securities-management/server-web 
+$ mvn spring-boot:run
+
+
+Die Literaturempfehlungen für dieses Beispiel
+
+    Spring Boot Documentation
+    Using Thymeleaf
+    Microservices: Grundlagen flexibler Softwarearchitekturen (*)
+    Microservices: Konzeption und Design (*)
+    Domain-Driven Design (*)
+
+
+Der Quellcode und Download des Beispiels
+
+Quellcode ansehen bei GitHub:
+microservices
+
+Download einer ZIP-Datei von GitHub:
+microservices
+
+
+Vielen Dank und Bis nächste Video ciau!!
