@@ -2,12 +2,15 @@ package com.javanto.CursoSpringBoot.Models;
 
 import java.util.Date;
 
+/**
+ *
+ */
 public class Post {
 
     private int id;
     private String descripcion;
-    private String uriImg;
-    private Date fecha;
+    private String uriImg = "http://localhost/img/post.jpg";
+    private Date fecha = new Date();
     private String titulo;
 
     public Post(){}

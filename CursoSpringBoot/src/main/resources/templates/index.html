@@ -50,7 +50,7 @@
                     <div class="card-body">
                         <h5 th:text="${post.titulo}" > </h5>
                         <p th:text="${post.descripcion}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a th:href="@{/home/post?id=} + ${post.id}}" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -72,6 +72,11 @@
     </div>
 
     </div>
+
+
+    <footer>
+        <p>Javanto HD</p>
+    </footer>
 
     </body>
 
