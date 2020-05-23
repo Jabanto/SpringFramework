@@ -67,12 +67,10 @@ public class UsoEmpleado {
 
         // ahoa hablaremos de los tipo de objetos que genera en context de spring
         // el singleton y prototype
-        
 
+       // Ahora vamos a ver unos ejemplos de singleton y prototype
 
         contexto.close();
-
-
 
 
     }
