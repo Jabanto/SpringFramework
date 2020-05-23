@@ -36,4 +36,22 @@ public class DirectorEmpleado implements Empleados {
     public String getInforme() {
         return "Informe creado por el director: " + informeNuevo.getInforme();
     }
+
+
+    // como crear metodo init  ejecutar tareas antes del qeu el beane ste disponible
+    // suelen servoid pero puede retornar un valor , el nombre puede ser init pero no tiene porque
+    public void metodoInicial(){
+
+        System.out.println("Dentro del metodo init(), las tareas de ejecutar antes de que el bean este listo para usar");
+
+    }
+
+
+    // como crear metodo destroy cuando el bean haya sido utilizado
+
+    public void metodoFinal(){
+        System.out.println("Dentro del metodo Destroy() , aqui se ejecutaran las tareas despues de utilizar el bean");
+    }
+
+
 }

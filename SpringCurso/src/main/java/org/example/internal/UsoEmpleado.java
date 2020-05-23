@@ -65,10 +65,29 @@ public class UsoEmpleado {
         System.out.println( "Email: " + Maria.getEmail());
         System.out.println(Maria.getNombreEmpresa());
 
-        // ahoa hablaremos de los tipo de objetos que genera en context de spring
-        // el singleton y prototype
 
-       // Ahora vamos a ver unos ejemplos de singleton y prototype
+
+        // Ahora hablaremos del ciclo de vida de los Beans en contenedorde Spring
+        // para saber como realizar tareas antes de la creacion y despues de usar el bean
+        // pero antes veamos cual es el ciclo de vida del bean
+
+        //1 se pone en funcionamient op el contenedor
+        //2 se crea los beans, o una instancia
+        //3 se inyectan la dependencias definidas
+        // 4 internamente el contenedor procesa el bean
+        // 5 una vez procesado esta listo para su uso , durante la vida del contenedor
+        // 6 se apga el contededor
+
+        // Este el ciclo de vida general pero aveces podemos necesitar realizar tareas antes de lacreacion del bean
+        // para esto tenemos los metods init() y destroy() como por ejemplo cargar dependecia de otro beans
+        // o para la activacion retarda de otro servicios como sockets o conexcion a base de datos
+        // lo mismo par el metodo destroy cuando el bean este ya destruido cerrar socket o conexcion para optimizar el programa
+        // vamos a ver
+
+
+
+
+
 
         contexto.close();
 

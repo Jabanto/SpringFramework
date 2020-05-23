@@ -18,6 +18,7 @@ public class UsoDemoSingletonPrototype {
 
         // los dos son single por defecto y aputan a las misma direcion en memoria ya que trabamos sobre patron singleton
         System.out.println(Maria);
+
         System.out.println(Pedro);
         System.out.println(Manolo);
         // pero si cambimos a prototype el flujo de tabajo cambiaria a else
