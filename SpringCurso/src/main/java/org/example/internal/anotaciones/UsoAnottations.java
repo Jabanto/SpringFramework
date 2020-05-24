@@ -30,8 +30,11 @@ public class UsoAnottations {
          * 3.- Configurar la dependencia con el Autowired , escribirlo en la clase donde seinyectara la dependencia
          */
 
+        // Ahora veremos el uso de la anotacion qualifier , para escipifacar el Id de un bean en concreto
+        // por ejemplo cuando tengamos varias clase que implementen una misma interfaz , para que autowired sepa que dependecia inyectar
+        // para ver esto creamos otra clase que iomplemente el mismo interfaz
 
-        // Ahora veremos como usar autowired par metodos inyectar dependeica en setter, con metodo normal y inyeccion de campos
+
 
 
 

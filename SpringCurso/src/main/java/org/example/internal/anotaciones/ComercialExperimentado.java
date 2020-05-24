@@ -2,6 +2,7 @@ package org.example.internal.anotaciones;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //Con conponen yxa tenemosdefinido nuestro bean , el nombre entre comilla seria el id
@@ -16,7 +17,9 @@ public class ComercialExperimentado implements Empleados {
     // el nombre del metod es irrelevanto
     // el metodo a usar sera siempre de acuerdo a facilitar el codigo , segun tu criterio y logica
     // es decir donde hay mucho setter o muchos constructores mejor usar inyecion directa des el campo y manteniedo el estilo en la otra clase
+    // utilizando qualifier decimos a autowired que bean en concreto queremos usar en elcaso que tengamos mas clase que implemente em la mis interfaz
     @Autowired
+    @Qualifier("informeFinancieroTrim4")
     private CreacionInformeFinanciero nuevoInforme;
 
 
