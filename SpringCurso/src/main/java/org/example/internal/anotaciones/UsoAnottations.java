@@ -17,5 +17,20 @@ public class UsoAnottations {
 
         System.out.println(Antonio.getTareas());
         System.out.println(Antonio.getInformes());
+
+        // vamos  ver otra anotacion importante de Autowired
+        // vamos a hacer un ejemplousando de una inyecion de dependiencias con constructor
+
+        // Los pasos #
+        /**
+         * 1.- Crear la clase + interfaz a inyectar (dependecias)
+         *
+         * 2.- Crear el constructor para inyecion en la clase que lo solicite o necite la dependencia
+         *
+         * 3.- Configurar la dependencia con el Autowired , escribirlo en la clase donde seinyectara la dependencia
+         */
+
+
+
     }
 }
