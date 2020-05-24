@@ -1,4 +1,4 @@
-package org.example.internal;
+package org.example.internal.xml;
 
 public class JefeEmpleado implements Empleados {
 

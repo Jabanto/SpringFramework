@@ -1,4 +1,4 @@
-package org.example.internal;
+package org.example.internal.xml;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

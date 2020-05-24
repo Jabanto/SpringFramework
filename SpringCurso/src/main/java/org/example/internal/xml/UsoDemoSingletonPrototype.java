@@ -1,6 +1,5 @@
-package org.example.internal;
+package org.example.internal.xml;
 
-import org.omg.CORBA.PERSIST_STORE;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class UsoDemoSingletonPrototype {

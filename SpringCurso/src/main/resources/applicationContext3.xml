@@ -11,11 +11,11 @@
     <!-- bean definitions here -->
 
 
-    <bean id="miInformeBean" class="org.example.internal.Informe"></bean>
+    <bean id="miInformeBean" class="org.example.internal.xml.Informe"></bean>
 
 
     <!-- aqui agregamos la etqiuetas de apertura para los metodos init y destroy agregaomoslo metodo que qeremos sean los init o destroy-->
-    <bean id="miEmpleadoBean" class="org.example.internal.DirectorEmpleado"
+    <bean id="miEmpleadoBean" class="org.example.internal.xml.DirectorEmpleado"
         init-method="metodoInicial" destroy-method="metodoFinal">
         <constructor-arg ref="miInformeBean"></constructor-arg>
     </bean>

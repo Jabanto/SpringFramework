@@ -1,4 +1,4 @@
-package org.example.internal;
+package org.example.internal.xml;
 
 public class DirectorEmpleado implements Empleados {
 
@@ -32,6 +32,7 @@ public class DirectorEmpleado implements Empleados {
     public String getTareas() {
         return "Gestionar la plantilla de la empresa";
     }
+
 
     public String getInforme() {
         return "Informe creado por el director: " + informeNuevo.getInforme();

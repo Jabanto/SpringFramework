@@ -1,4 +1,4 @@
-package org.example.internal;
+package org.example.internal.xml;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -83,6 +83,32 @@ public class UsoEmpleado {
         // o para la activacion retarda de otro servicios como sockets o conexcion a base de datos
         // lo mismo par el metodo destroy cuando el bean este ya destruido cerrar socket o conexcion para optimizar el programa
         // vamos a ver
+
+
+
+        // Ahora vamos a ver Spring con las javaAnotations
+        // Las anotaciones sirve para agregar metadatos a nuestros programa java
+        //  los metadatos describen el contenido y el porposito de un objeto, es decir por ejemplo no permiter prescindir de la
+        // los archivos xml en este caso seguiremo usando el archivo xml pero simplificaremos su contenido
+
+
+        // Spring como trabaja con la annotaciones
+        // Spring scanea nuestro codigo en busca de estas anotaciones , este concepto se le conoce como recursividad
+        // para esto tenemos que preparar el xml para que spring busque o escanee las anotaciones
+        // para simplificar nuestra creacion de beans y inyeccion de dependencias
+        // estas no ayudan sober todo cuando nuestro proyecto tienes muchos beans o dependencias
+
+        /**
+         * Vamos a ver que pasos a seguir para utilizar la annotations en spring
+         *
+         * 1.- Preparar el xml para que spring pueda escanear el codigo
+         *
+         * 2.- Agregaar las anotaciones en codigo
+         *
+         * 3.- Pedir /utilizar el bean definido con anotaciones
+         *
+         */
+
 
 
 

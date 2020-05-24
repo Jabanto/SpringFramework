@@ -10,9 +10,9 @@
 
     <!-- bean definitions here -->
 
-    <bean id="miInformeBean" class="org.example.internal.Informe"></bean>
+    <bean id="miInformeBean" class="org.example.internal.xml.Informe"></bean>
 
-    <bean id="miSecretarioBean" class="org.example.internal.SecretarioEmpleado" scope="prototype">
+    <bean id="miSecretarioBean" class="org.example.internal.xml.SecretarioEmpleado" scope="prototype">
 
         <!-- para agregar la referencia a una inyeccion desde el setter , tenemis que rellemanar name
             para ello , consites en el nombre del set , sin el sety la primera parabra en  miniuscula y el respoto como

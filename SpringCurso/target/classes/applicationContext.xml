@@ -14,34 +14,10 @@
 
     <context:property-placeholder location="classpath:log4j.properties"></context:property-placeholder>
 
-    <bean id="miInformeBean" class="org.example.internal.Informe">
+    <!-- Aqui activamos y definmos donde buscar las anotacionesn para que spring activa elescaneo de anotaciones -->
 
-    </bean>
+    <context:component-scan base-package="org.example.internal.anotaciones"></context:component-scan>
 
-    <bean id="miEmpleadoBean" class="org.example.internal.DirectorEmpleado">
-        <constructor-arg ref="miInformeBean"></constructor-arg>
-
-        <property name="email" value="${email}"></property>
-        <property name="nombreEmpresa" value="${nombreEmpresa}"></property>
-    </bean>
-
-    <bean id="miSecretarioBean" class="org.example.internal.SecretarioEmpleado">
-
-        <!-- para agregar la referencia a una inyeccion desde el setter , tenemis que rellemanar name
-            para ello , consites en el nombre del set , sin el sety la primera parabra en  miniuscula y el respoto como
-            en el metodo setter -->
-
-        <property name="informeNuevo" ref="miInformeBean"></property>
-
-
-        <!-- Aqui estamos inyectando dependencias del tipo campo , para email y nombre empresa que se inyectaran con los
-        valores en la clase secretario empleado se parece mucho a las inyeccion setter es importante el nombre que se basa en metodo set sin set y la primera
-        letra minuscula , y el value que tendra el campo que qeremos inyectar-->
-
-        <property name="email" value="secretaria@hotmail.es"></property>
-        <property name="nombreEmpresa" value="jabanto GMBH"></property>
-
-    </bean>
 
 
 
