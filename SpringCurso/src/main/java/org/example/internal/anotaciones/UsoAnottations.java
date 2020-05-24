@@ -21,23 +21,10 @@ public class UsoAnottations {
         // vamos  ver otra anotacion importante de Autowired
         // vamos a hacer un ejemplousando de una inyecion de dependiencias con constructor
 
-        // Los pasos #
-        /**
-         * 1.- Crear la clase + interfaz a inyectar (dependecias)
-         *
-         * 2.- Crear el constructor para inyecion en la clase que lo solicite o necite la dependencia
-         *
-         * 3.- Configurar la dependencia con el Autowired , escribirlo en la clase donde seinyectara la dependencia
-         */
-
-        // Ahora veremos el uso de la anotacion qualifier , para escipifacar el Id de un bean en concreto
-        // por ejemplo cuando tengamos varias clase que implementen una misma interfaz , para que autowired sepa que dependecia inyectar
-        // para ver esto creamos otra clase que iomplemente el mismo interfaz
+       // Ahora veremos la defincion del Scope es decir como se inyectaran los objeto usan el patron singleton o prototype
 
 
-
-
-
+       context.close();
 
 
     }

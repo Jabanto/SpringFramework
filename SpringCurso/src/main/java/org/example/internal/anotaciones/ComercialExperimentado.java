@@ -3,12 +3,15 @@ package org.example.internal.anotaciones;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 //Con conponen yxa tenemosdefinido nuestro bean , el nombre entre comilla seria el id
 // se puede precindir el id name en este caso ComercialExperimentado, spring utiliza como formato entonces la primera letro como minusculas
 // aqui el id automatico seria comercialExperimentado , con la c minuscula en el caso que no pongamos id en comporent()
+// con Scope cambiamos el patron de trabajo entre prototype o single ton
 @Component("ComercialExperimentadoBean")
+@Scope("prototype")
 public class ComercialExperimentado implements Empleados {
 
 
