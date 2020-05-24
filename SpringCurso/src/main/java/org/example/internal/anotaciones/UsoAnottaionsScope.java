@@ -19,24 +19,13 @@ public class UsoAnottaionsScope {
 
         //2.- pedir un bean a travez de anotaciones al contenedor
 
-        Empleados Antonio = context.getBean("ComercialExperimentadoBean", Empleados.class);
-        Empleados Lucia = context.getBean("ComercialExperimentadoBean", Empleados.class);
+        Empleados empleados = context.getBean("directorFinanciero", Empleados.class);
 
-        System.out.println(Antonio.getTareas());
-        System.out.println(Antonio.getInformes());
+        System.out.println(empleados.getInformes());
+        System.out.println(empleados.getTareas());
 
-        System.out.println(Lucia.getTareas());
-        System.out.println(Antonio.getInformes());
-
-        // apunta al mismo objeto a variable en memoria por defecto si ya que el patron es singleton
-
-        if (Antonio==Lucia) {
-            System.out.println("Apuntan al mismo lugar en memoria");
-            System.out.println(Antonio + "\n" + Lucia);
-        }else{
-            System.out.println("No aputan al mismo lugar en la memoria");
-            System.out.println(Antonio + "\n" + Lucia);
-        }
+        // como pedir beans a container de spring utilizando java y prescindiendo del archivo xml
+        // vamos crear una clase que sea capas de crear informe finnacieros
 
         context.close();
     }
