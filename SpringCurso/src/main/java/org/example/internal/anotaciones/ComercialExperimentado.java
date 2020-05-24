@@ -6,14 +6,33 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 //Con conponen yxa tenemosdefinido nuestro bean , el nombre entre comilla seria el id
 // se puede precindir el id name en este caso ComercialExperimentado, spring utiliza como formato entonces la primera letro como minusculas
 // aqui el id automatico seria comercialExperimentado , con la c minuscula en el caso que no pongamos id en comporent()
 // con Scope cambiamos el patron de trabajo entre prototype o single ton
 @Component("ComercialExperimentadoBean")
-@Scope("prototype")
+@Scope("singleton")
 public class ComercialExperimentado implements Empleados {
 
+    // ejecuacion de codigo despues de ceracion del beean
+    // estos metodo no se puede usar con el aptron de prototyper solo con el singleton
+    @PostConstruct
+    public void ejecutaDespuesCreacion(){
+
+        System.out.println("Ejecutado tras creacion del Bean");
+    }
+
+
+    // ejecucion de codigo  despues apagaod del context y antes de desctrucion del bean
+    // este metodo solo se usa bajo el patron singleton tampoco puede recibir ningun tipo de parametro
+    @PreDestroy
+    public void ejecutaAntesDestrucion(){
+        System.out.println("Ejecutando antes de la destrucion");
+
+    }
 
     // podemos usar autowired directament en en campo sin usar o definir el autowired (utilizando el concepto de reflexion)
     // funcinaral la inyecion sin agregar el settter o constructor
@@ -58,4 +77,7 @@ public class ComercialExperimentado implements Empleados {
         // aqui llamanos al metod de la interfaz Ceacion informefiunacieron
         return nuevoInforme.getInformeFinaciero();
     }
+
+
+
 }
