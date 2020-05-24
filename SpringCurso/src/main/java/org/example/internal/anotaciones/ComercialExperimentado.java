@@ -10,17 +10,38 @@ import org.springframework.stereotype.Component;
 @Component("ComercialExperimentadoBean")
 public class ComercialExperimentado implements Empleados {
 
+
+    // podemos usar autowired directament en en campo sin usar o definir el autowired (utilizando el concepto de reflexion)
+    // funcinaral la inyecion sin agregar el settter o constructor
+    // el nombre del metod es irrelevanto
+    // el metodo a usar sera siempre de acuerdo a facilitar el codigo , segun tu criterio y logica
+    // es decir donde hay mucho setter o muchos constructores mejor usar inyecion directa des el campo y manteniedo el estilo en la otra clase
+    @Autowired
     private CreacionInformeFinanciero nuevoInforme;
+
+
+    public ComercialExperimentado(){
+
+    }
 
     // Si ponemos aqui autowired , spring bucas en todos el proyecto una clase que implemete la interfaz creacioninformeFinaciero
     // En este caso InformeFinacieroTrim1 y cuado la emcuentra la inyecta como dependencia , asiq como definiamos en el xml
     // En algunas versiones  apartir de la 4.3 de Spring no es necesario escribirla para inyectar la dependencia si solo tenemos un constructor
     // como en este caso si hubiera otro constructor la anotacion seria necesaria
-    @Autowired
+    /*@Autowired
     public ComercialExperimentado(CreacionInformeFinanciero nuevoInforme) {
 
         this.nuevoInforme = nuevoInforme;
+    }*/
+
+    public CreacionInformeFinanciero getNuevoInforme() {
+        return nuevoInforme;
     }
+
+    /*@Autowired
+    public void setNuevoInforme(CreacionInformeFinanciero nuevoInforme) {
+        this.nuevoInforme = nuevoInforme;
+    }*/
 
     public String getTareas() {
         return "Vender ,vender y vender mas";

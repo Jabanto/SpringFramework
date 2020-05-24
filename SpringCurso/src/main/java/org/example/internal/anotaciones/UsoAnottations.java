@@ -31,6 +31,11 @@ public class UsoAnottations {
          */
 
 
+        // Ahora veremos como usar autowired par metodos inyectar dependeica en setter, con metodo normal y inyeccion de campos
+
+
+
+
 
     }
 }
