@@ -18,12 +18,9 @@ public class UsoAnottations {
         System.out.println(Antonio.getTareas());
         System.out.println(Antonio.getInformes());
 
-        // ahora vamos a utilizar los metodos init() y destroy()
-        // en este caso sin  el archivo de configuracion sino utilizando las anotaciones
-        // recordar el ciclo de vidad de los beans en el spring container
-        // 1 Contenedor 2 creacion de Bean , 3 inyeccion de dependias , 4 procesado de Bean 5 metodo ini(),
-        // 6 Bean listo para su uso 7 cerrar contenedor 8 utilizar netodo destroy()
-        // esta anotaciones sera las PostContruct y PreDestroy
+
+        // vamos configurar Srpig en esete caso dejando el archico xml utilizando unicamente codigo java
+        //  utilizando un archivo .class y definir la configura ahy
        context.close();
 
 
