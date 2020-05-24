@@ -1,12 +1,19 @@
 package org.example.internal.anotaciones;
 
 
-
+import org.springframework.beans.factory.annotation.Value;
 
 public class DirectorFinanciero implements Empleados {
 
 
     private CreacionInformeFinanciero informeFinanciero;
+    //Aqui inyectamos los campos y los valores que hemos definido en el archivo properties
+    // para inyectar los valores usamos la anotacion Value
+    @Value("${email}")
+    private String email;
+
+    @Value("${nombreEmpresa}")
+    private String nombreEmpresa;
 
     public DirectorFinanciero(){}
 
@@ -22,6 +29,12 @@ public class DirectorFinanciero implements Empleados {
         return informeFinanciero.getInformeFinaciero();
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
 
 }
