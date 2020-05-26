@@ -27,6 +27,7 @@ public class SpringJWTApplication implements CommandLineRunner {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
+	// Test Of jdbc Conection
 	@Override
 	public void run(String... args) throws Exception {
 
@@ -40,7 +41,7 @@ public class SpringJWTApplication implements CommandLineRunner {
 		//Using Java 8 Stream to pritn out each tuple fo the list
 		splitUpNames.forEach(name->log.info(String.format("Inserting customer record for %s %s", name[0], name[1])));
 
-		// Use Jdbc Temaplate btach Update Operation to bulk load data
+		// Use Jdbc Template bach Update Operation to bulk load data
 
 		//jdbcTemplate.batchUpdate("INSERT INTO user(login,password) VALUES (?,?)",splitUpNames);
 

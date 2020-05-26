@@ -1,6 +1,11 @@
 package com.jabanto.spring.SpringMVc.Model;
 
-public class User {
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+
+public class UserModel {
 
     private long id;
     private String login;
@@ -8,7 +13,7 @@ public class User {
     private String fName, lName;
     private String eMail;
 
-    public User(long id, String login, String password, String fName, String lName, String eMail) {
+    public UserModel(long id, String login, String password, String fName, String lName, String eMail) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -42,11 +47,9 @@ public class User {
     public void setLogin(String login) {
         this.login = login;
     }
-
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
