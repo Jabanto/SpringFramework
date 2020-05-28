@@ -18,6 +18,6 @@ public class MyUserDetailsService implements UserDetailsService {
         //TODO import information fron DB
         UserModel admin = new UserModel(1,"admin","pass","jabanto","jabanto","Jabanto@interNet.de");
         // User implements User details interface
-        return new User(admin.getLogin(),admin.getPassword(),new ArrayList<>());
+        return new User("foo","foo",new ArrayList<>());
     }
 }
