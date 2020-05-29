@@ -29,7 +29,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtilService jwtUtil;
 
-    /** Examine the comming request see the jwt , and if these are valid
+    /** Examine the coming request see the jwt , and if these are valid
      * its gonna  get the user details out of the user detailed service
      * and saved in the security context
      *

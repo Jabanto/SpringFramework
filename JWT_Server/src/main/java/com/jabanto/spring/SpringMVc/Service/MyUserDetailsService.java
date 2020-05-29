@@ -1,6 +1,7 @@
 package com.jabanto.spring.SpringMVc.Service;
 
 import com.jabanto.spring.SpringMVc.Model.UserModel;
+import com.jabanto.spring.SpringMVc.Repository.UserRepo;
 import com.jabanto.spring.SpringMVc.SpringJWTApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,9 @@ import java.util.ArrayList;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
+    @Autowired
+    UserRepo userRepo;
+
     /**
      * Load the user Information base on the data saved on the mysql DB
      * @param userName
@@ -31,9 +35,8 @@ public class MyUserDetailsService implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-
-        //TODO import information fron DB
-        UserModel admin = new UserModel(1,"admin","pass","jabanto","jabanto","Jabanto@interNet.de");
-        return new User(admin.getfName(),admin.getPassword(),new ArrayList<>());
+        //TODO import information from
+        UserModel admin = userRepo.getUserByName("admin");
+        return new User(admin.getLogin(),admin.getPassword(),new ArrayList<>());
     }
 }

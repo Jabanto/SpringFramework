@@ -13,6 +13,9 @@ public class UserModel {
     private String fName, lName;
     private String eMail;
 
+    public UserModel() {
+    }
+
     public UserModel(long id, String login, String password, String fName, String lName, String eMail) {
         this.id = id;
         this.login = login;
