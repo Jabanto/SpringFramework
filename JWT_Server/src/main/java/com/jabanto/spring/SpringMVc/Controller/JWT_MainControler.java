@@ -27,7 +27,7 @@ public class JWT_MainControler {
     // Test Method for https Get Request
     @GetMapping("/hello")
     public String test(){
-        return "Welcome to jabanto";
+        return "Welcome jabanto";
     }
 
     /**
@@ -35,7 +35,7 @@ public class JWT_MainControler {
      * to generate a JWT token as a respond in the payload
      * We sume that the client hold on to that jwt and sends it in other subsequent request in the header
      * @param authenticationRequest
-     * @return JWT jason Token
+     * @return JWT json Token
      * @throws Exception
      */
     @PostMapping("/login")
@@ -45,9 +45,9 @@ public class JWT_MainControler {
         // that will be autowire an we use it these manager in order to authenticate a new username and password authentication token
         try {
             authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authenticationRequest.getUserName(), authenticationRequest.getPassword())
+                    new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())
             );
-            // TODO seee the fail on the message of the payload
+            // TODO see the fail on the message of the payload
         }catch (BadCredentialsException e){
             throw  new Exception("Incorrect username or password", e);
         }
@@ -55,7 +55,7 @@ public class JWT_MainControler {
         // in the pay load response
 
         final UserDetails userDetails = userDetailsService
-                .loadUserByUsername(authenticationRequest.getUserName());
+                .loadUserByUsername(authenticationRequest.getUsername());
 
         final String jwt = jwtTokenUtilService.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
@@ -70,11 +70,12 @@ public class JWT_MainControler {
     // Update User Information
     @PutMapping("/user/{id}")
     public String updateUser(){
+
         return "User Updated";
     }
 
     // create a explicitly an specify a POST endpoints for login using UI provide by Spring Security Model
-    // , We can use too RequestMappin that map all HTTP operations
+    // , We can use too RequestMapping that map all HTTP operations
     @GetMapping("/user/{id}")
     public String login(PathVariable id) {
         return "User Information ACL " + id.name();

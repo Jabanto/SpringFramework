@@ -2,7 +2,7 @@ package com.jabanto.spring.SpringMVc.Model;
 
 public class Role {
 
-    private int id;
+    private long id;
     private int idUser;
     private int roleAdmin;
     private int roleDevelop;
@@ -14,6 +14,8 @@ public class Role {
     private int rolePurchaseWrite;
     private int roleSaleWrite;
     private int roleSql;
+
+    public Role(){};
 
     public Role(int id, int idUser, int roleAdmin, int roleDevelop, int roleCtld, int roleGltd, int roleBilling, int roleRegistry, int rolePurchaseRead, int rolePurchaseWrite, int roleSaleWrite, int roleSql) {
 
@@ -31,11 +33,11 @@ public class Role {
         this.roleSql = roleSql;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

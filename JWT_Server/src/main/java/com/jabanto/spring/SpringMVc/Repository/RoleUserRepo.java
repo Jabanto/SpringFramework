@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ParameterizedPreparedStatementSetter;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,14 +21,14 @@ import java.util.List;
  * We define hier the basic CRUD methods to load information on the dataBase for the User and Rolle Table
  */
 @Repository
-public class UserRepo {
+public class RoleUserRepo {
 
     private static final Logger log = LoggerFactory.getLogger(SpringJWTApplication.class);
 
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public UserRepo() {
+    public RoleUserRepo() {
     }
 
     public void insertDataSet(){
@@ -111,6 +112,7 @@ public class UserRepo {
             PreparedStatement preparedStatement = jdbcTemplate.getDataSource().getConnection().prepareStatement(SQL_Select);
             ResultSet resultSet = preparedStatement.executeQuery();
 
+
             while (resultSet.next()){
 
                 long id = resultSet.getLong("id");
@@ -130,6 +132,7 @@ public class UserRepo {
 
         for (UserModel user:resultQuery) {
 
+            log.info("Searching with user:  " + user.toString());
             if (user.getLogin().equals(username)){
                 retVal = user;
             }
@@ -138,5 +141,42 @@ public class UserRepo {
 
         return retVal;
     }
+
+    public Role getRoleByUserId(long idUser){
+
+        Role roleRetVal = new Role();
+
+        String SQL_Select = "SELECT * FROM jwt.role WHERE role.user_id ="+idUser;
+
+        try {
+
+            PreparedStatement preparedStatement = jdbcTemplate.getDataSource().getConnection().prepareStatement(SQL_Select);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+
+                roleRetVal.setId(resultSet.getLong("id"));
+                roleRetVal.setIdUser(resultSet.getInt("user_id"));
+                roleRetVal.setRoleAdmin(resultSet.getInt("role_admin"));
+                roleRetVal.setRoleDevelop(resultSet.getInt("role_develop"));
+                roleRetVal.setRoleCtld(resultSet.getInt("role_cctld"));
+
+            }
+
+        }
+        catch (SQLException e){
+            log.error("SQL state %s\n%s", e.getSQLState(), e.getMessage());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return roleRetVal;
+    }
+
+    public UserModel findUserById(int id){
+        UserModel userModel = new UserModel();
+        return  userModel;
+    }
+
 
 }

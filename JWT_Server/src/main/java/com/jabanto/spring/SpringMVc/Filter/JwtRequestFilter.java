@@ -2,6 +2,7 @@ package com.jabanto.spring.SpringMVc.Filter;
 
 import com.jabanto.spring.SpringMVc.Service.MyUserDetailsService;
 import com.jabanto.spring.SpringMVc.Service.JwtUtilService;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -46,6 +47,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         // 1 get the header with the authorization from the request to begin the validation of the JWT
         final String authorizationHeader = httpServletRequest.getHeader("Authorization");
         String userName = null;
+        Claims allPrivilege = null;
         String jwt = null;
 
         // 2 Define some structure of the authorization header
