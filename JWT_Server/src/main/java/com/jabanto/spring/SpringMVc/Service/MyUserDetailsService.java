@@ -57,6 +57,10 @@ public class MyUserDetailsService implements UserDetailsService {
                     getAuthorities(Arrays.asList(roleUserRetval)));
 
         //return new User(userRetval.getLogin(),userRetval.getPassword(),list);
+        /*return  User.withUsername(userRetval.getLogin())//
+                .password(userRetval.getPassword())//
+                .authorities(getAuthorities(Arrays.asList(roleUserRetval)))//
+                .build();*/
     }
 
 
