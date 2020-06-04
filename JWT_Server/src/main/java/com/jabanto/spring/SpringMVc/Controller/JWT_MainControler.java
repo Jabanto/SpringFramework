@@ -2,6 +2,8 @@ package com.jabanto.spring.SpringMVc.Controller;
 
 import com.jabanto.spring.SpringMVc.Model.AuthenticationRequest;
 import com.jabanto.spring.SpringMVc.Model.AuthenticationResponse;
+import com.jabanto.spring.SpringMVc.Model.UserModel;
+import com.jabanto.spring.SpringMVc.Repository.RoleUserRepo;
 import com.jabanto.spring.SpringMVc.Service.MyUserDetailsService;
 import com.jabanto.spring.SpringMVc.Service.JwtUtilService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class JWT_MainControler {
+
+    @Autowired
+    private RoleUserRepo roleUserRepo;
 
     @Autowired
     private MyUserDetailsService userDetailsService;
@@ -64,27 +69,32 @@ public class JWT_MainControler {
     // create a explicitly an specify a POST endpoints for login using UI provide by Spring Security Model
     @PostMapping("/user")
     public String createUser(){
-        return "User created";
+        UserModel userModel = new UserModel("createdLogin2","test123","fnameTest","lnameTest","emailTest2");
+        roleUserRepo.createUser(userModel.getLogin(),userModel.getPassword(),userModel.getfName(),userModel.getlName(),userModel.geteMail());
+        return "User with credentials" + userModel.toString() + "create";
     }
 
     // Update User Information
     @PutMapping("/user/{id}")
-    public String updateUser(){
-
-        return "User Updated";
+    public String updateUser(@PathVariable("id") Long id){
+        roleUserRepo.updateUser(id,"clientTest");
+        UserModel userModel = roleUserRepo.findUserById(id);
+        return "User Updated : " + userModel.toString();
     }
 
     // create a explicitly an specify a POST endpoints for login using UI provide by Spring Security Model
     // , We can use too RequestMapping that map all HTTP operations
     @GetMapping("/user/{id}")
-    public String login(PathVariable id) {
-        return "User Information ACL " + id.name();
+    public String login(@PathVariable("id") Long id) {
+        String result =  roleUserRepo.findUserById(id).toString();
+        return "User Information ACL " + result;
     }
 
+    // Delete User  using  the id ,
     @DeleteMapping("/user/{id}")
-    public String deleteUser(PathVariable id){
-
-        return "User was deleted from DB";
+    public String deleteUser(@PathVariable("id") Long id){
+        roleUserRepo.deleteUserById(id);
+        return "User with Id :" + id  +"was deleted from DB";
     }
 
 

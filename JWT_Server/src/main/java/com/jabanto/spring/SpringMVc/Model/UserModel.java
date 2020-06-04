@@ -16,6 +16,14 @@ public class UserModel {
     public UserModel() {
     }
 
+    public UserModel(String login, String password, String fName, String lName, String eMail) {
+        this.login = login;
+        this.password = password;
+        this.fName = fName;
+        this.lName = lName;
+        this.eMail = eMail;
+    }
+
     public UserModel(long id, String login, String password, String fName, String lName, String eMail) {
         this.id = id;
         this.login = login;
@@ -32,6 +40,8 @@ public class UserModel {
                 "id=" + id +
                 ", firstName='" + fName + '\'' +
                 ", lastName='" + lName + '\'' +
+                ", loginName='" + login + '\'' +
+                ", Email='" +eMail + '\''+
                 '}';
     }
 

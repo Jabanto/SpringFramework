@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,14 +100,22 @@ public class RoleUserRepo {
 
     }
 
-    public UserModel getUserByName(String username){
+    public void createUser(String loginname ,String password, String fname, String lname, String email ) {
+
+        String SQL_INSERT = "INSERT INTO jwt.user (login,password,fname,lname,email) VALUES (?,?,?,?,?)";
+        //try {
+            jdbcTemplate.update(SQL_INSERT,loginname,password,fname,lname,email);
+
+    }
+
+    public UserModel findUserByName(String username){
 
         UserModel retVal = new UserModel();
 
         List<UserModel> resultQuery = new ArrayList<>();
 
 
-        String SQL_Select = "SELECT * FROM jwt.user ";
+        String SQL_Select = "SELECT * FROM jwt.user";
         try {
 
             PreparedStatement preparedStatement = jdbcTemplate.getDataSource().getConnection().prepareStatement(SQL_Select);
@@ -125,7 +134,10 @@ public class RoleUserRepo {
 
         }catch (SQLException e){
             log.error("SQL state %s\n%s", e.getSQLState(), e.getMessage());
-        }catch (Exception e){
+
+        }
+
+        catch (Exception e){
             e.printStackTrace();
         }
 
@@ -142,7 +154,7 @@ public class RoleUserRepo {
         return retVal;
     }
 
-    public Role getRoleByUserId(long idUser){
+    public Role findRoleByUserId(long idUser){
 
         Role roleRetVal = new Role();
 
@@ -173,9 +185,54 @@ public class RoleUserRepo {
         return roleRetVal;
     }
 
-    public UserModel findUserById(int id){
-        UserModel userModel = new UserModel();
-        return  userModel;
+    public UserModel findUserById(long id){
+
+        UserModel userRetVal = new UserModel();
+
+        String SQL_Select = "SELECT * FROM jwt.user WHERE user.id="+ id;
+
+        try {
+
+            PreparedStatement preparedStatement = jdbcTemplate.getDataSource().getConnection().prepareStatement(SQL_Select);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+
+                userRetVal.setId(resultSet.getLong("id"));
+                userRetVal.setLogin(resultSet.getString("login"));
+                userRetVal.setPassword(resultSet.getString("password"));
+                userRetVal.setfName(resultSet.getString("fname"));
+                userRetVal.setlName(resultSet.getString("lname"));
+                userRetVal.seteMail(resultSet.getString("email"));
+
+            }
+
+
+        }catch (SQLException e){
+
+            log.error("SQL State s%\n%s",e.getSQLState(), e.getMessage());
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return  userRetVal;
+    }
+
+
+    public void updateUser(long id ,String loginName ){
+
+        String SQL_Update = "UPDATE jwt.user SET user.login = ? WHERE user.id = ?";
+        jdbcTemplate.update(SQL_Update,loginName,id);
+
+    }
+
+
+    public  void deleteUserById(long id){
+
+        String SQL_delete = "DELETE FROM jwt.user WHERE user.id = ?";
+        jdbcTemplate.update(SQL_delete,id);
+
     }
 
 

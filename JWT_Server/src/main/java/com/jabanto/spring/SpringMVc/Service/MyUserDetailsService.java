@@ -13,8 +13,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.security.PrivilegedAction;
-import java.text.CollationElementIterator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -48,8 +46,8 @@ public class MyUserDetailsService implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        UserModel userRetval = roleUserRepo.getUserByName(userName);
-        Role roleUserRetval = roleUserRepo.getRoleByUserId(userRetval.getId());
+        UserModel userRetval = roleUserRepo.findUserByName(userName);
+        Role roleUserRetval = roleUserRepo.findRoleByUserId(userRetval.getId());
         ArrayList<GrantedAuthority> list = new ArrayList<>();
 
         return new User(userRetval.getLogin(),userRetval.getPassword(),
