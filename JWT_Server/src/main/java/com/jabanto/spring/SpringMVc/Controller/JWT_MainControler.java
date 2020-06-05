@@ -8,6 +8,7 @@ import com.jabanto.spring.SpringMVc.Service.MyUserDetailsService;
 import com.jabanto.spring.SpringMVc.Service.JwtUtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -67,6 +68,7 @@ public class JWT_MainControler {
     }
 
     // create a explicitly an specify a POST endpoints for login using UI provide by Spring Security Model
+    @PreAuthorize("hasAuthority('WRITE_PRIVILEGE')")
     @PostMapping("/user")
     public String createUser(){
         UserModel userModel = new UserModel("createdLogin2","test123","fnameTest","lnameTest","emailTest2");
@@ -75,6 +77,7 @@ public class JWT_MainControler {
     }
 
     // Update User Information
+    @PreAuthorize("hasAuthority('UPDATE_PRIVILEGE')")
     @PutMapping("/user/{id}")
     public String updateUser(@PathVariable("id") Long id){
         roleUserRepo.updateUser(id,"clientTest4");
@@ -84,6 +87,7 @@ public class JWT_MainControler {
 
     // create a explicitly an specify a POST endpoints for login using UI provide by Spring Security Model
     // , We can use too RequestMapping that map all HTTP operations
+    @PreAuthorize("hasAuthority('READ_PRIVILEGE')")
     @GetMapping("/user/{id}")
     public String login(@PathVariable("id") Long id) {
         String result =  roleUserRepo.findUserById(id).toString();
@@ -91,6 +95,7 @@ public class JWT_MainControler {
     }
 
     // Create a explicit Delete endpoints to delete User by Id
+    @PreAuthorize("hasAuthority('DELETE_PRIVILEGE')")
     @DeleteMapping("/user/{id}")
     public String deleteUser(@PathVariable("id") Long id){
         roleUserRepo.deleteUserById(id);
