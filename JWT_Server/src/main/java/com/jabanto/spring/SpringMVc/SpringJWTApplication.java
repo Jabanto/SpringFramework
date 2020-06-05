@@ -4,6 +4,7 @@ import com.jabanto.spring.SpringMVc.Repository.RoleUserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,12 +19,17 @@ public class SpringJWTApplication implements CommandLineRunner {
 	}
 
 	@Autowired
-    RoleUserRepo userRepo;
+    private RoleUserRepo userRepo;
+
+	@Value("sql.import")
+	private String importSql;
 
 	@Override
 	public void run(String... args) throws Exception {
 
-		mainlog.info("Connecting to Mysql DB");
-		//userRepo.insertDataSet();
+		if (importSql.equalsIgnoreCase("TRUE")) {
+			mainlog.info("Connecting to Mysql DB and creating basic DataSet records");
+			userRepo.insertDataSet();
+		}
 	}
 }

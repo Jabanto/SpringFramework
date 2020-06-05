@@ -54,7 +54,7 @@ public class JWT_MainControler {
             );
             // TODO see the fail on the message of the payload
         }catch (BadCredentialsException e){
-            throw  new Exception("Incorrect username or password", e);
+            throw  new Exception("Incorrect username or password",e );
         }
         // the here the authentication it is successful here the methods create and returns the JWT
         // in the pay load response
@@ -71,13 +71,13 @@ public class JWT_MainControler {
     public String createUser(){
         UserModel userModel = new UserModel("createdLogin2","test123","fnameTest","lnameTest","emailTest2");
         roleUserRepo.createUser(userModel.getLogin(),userModel.getPassword(),userModel.getfName(),userModel.getlName(),userModel.geteMail());
-        return "User with credentials" + userModel.toString() + "create";
+        return "User with credentials" + userModel.toString() + "created";
     }
 
     // Update User Information
     @PutMapping("/user/{id}")
     public String updateUser(@PathVariable("id") Long id){
-        roleUserRepo.updateUser(id,"clientTest");
+        roleUserRepo.updateUser(id,"clientTest4");
         UserModel userModel = roleUserRepo.findUserById(id);
         return "User Updated : " + userModel.toString();
     }
@@ -90,11 +90,11 @@ public class JWT_MainControler {
         return "User Information ACL " + result;
     }
 
-    // Delete User  using  the id ,
+    // Create a explicit Delete endpoints to delete User by Id
     @DeleteMapping("/user/{id}")
     public String deleteUser(@PathVariable("id") Long id){
         roleUserRepo.deleteUserById(id);
-        return "User with Id :" + id  +"was deleted from DB";
+        return "User with Id :" + id  +" was deleted from DB";
     }
 
 

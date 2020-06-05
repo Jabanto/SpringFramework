@@ -6,6 +6,8 @@ import com.jabanto.spring.SpringMVc.SpringJWTApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ParameterizedPreparedStatementSetter;
 import org.springframework.stereotype.Repository;
@@ -27,11 +29,18 @@ public class RoleUserRepo {
     private static final Logger log = LoggerFactory.getLogger(SpringJWTApplication.class);
 
     @Autowired
+    Environment env;
+
+    @Autowired
     JdbcTemplate jdbcTemplate;
 
     public RoleUserRepo() {
     }
 
+    /**
+     * This method insert a record a query using INSERT query with the help of Spring JDBC.
+     * We'll insert some records in User and Role Table.
+     */
     public void insertDataSet(){
 
         UserModel admin = new UserModel(2,"admin","pass","jabanto","jabanto","Jabanto@interNetX.de");
@@ -66,6 +75,10 @@ public class RoleUserRepo {
 
     }
 
+    /**
+     * This method insert a record a query using INSERT query with the help of Spring JDBC.
+     * We'll insert some records in role Table.
+     */
     private void insertRoleDataSet(){
 
         Role adminRole = new Role(1,2,1,1,0,0,0,0,0,0,0,0);
@@ -100,22 +113,36 @@ public class RoleUserRepo {
 
     }
 
+    /**
+     * This method insert a record a query using INSERT query with the help of Spring JDBC.
+     * We'll insert one new record in user Table.
+     *
+     * @param loginname login name
+     * @param password  no encrypted password TODO encrypt the password
+     * @param fname family of the user
+     * @param lname last name of the
+     * @param email email of the user
+     */
     public void createUser(String loginname ,String password, String fname, String lname, String email ) {
 
-        String SQL_INSERT = "INSERT INTO jwt.user (login,password,fname,lname,email) VALUES (?,?,?,?,?)";
-        //try {
-            jdbcTemplate.update(SQL_INSERT,loginname,password,fname,lname,email);
+        String SQL_INSERT = env.getProperty("sql.insert.user");
+        jdbcTemplate.update(SQL_INSERT,loginname,password,fname,lname,email);
 
     }
 
+    /**
+     * The following method read a query using SELECT query with the help of Spring JDBC.
+     * We'll read one of the records in role Table a return RoleModel.
+     * @param username
+     * @return
+     */
     public UserModel findUserByName(String username){
 
         UserModel retVal = new UserModel();
 
         List<UserModel> resultQuery = new ArrayList<>();
+        String SQL_Select = env.getProperty("sql.select.all.users");
 
-
-        String SQL_Select = "SELECT * FROM jwt.user";
         try {
 
             PreparedStatement preparedStatement = jdbcTemplate.getDataSource().getConnection().prepareStatement(SQL_Select);
@@ -154,11 +181,17 @@ public class RoleUserRepo {
         return retVal;
     }
 
+    /**
+     * The following method read a query using SELECT query with the help of Spring JDBC.
+     * We'll read one of the records in role Table a return RoleModel.
+     * @param idUser of the user with the role
+     * @return a mapped Role
+     */
     public Role findRoleByUserId(long idUser){
 
         Role roleRetVal = new Role();
 
-        String SQL_Select = "SELECT * FROM jwt.role WHERE role.user_id ="+idUser;
+        String SQL_Select = env.getProperty("sql.select.role.byUser")+idUser;
 
         try {
 
@@ -185,11 +218,16 @@ public class RoleUserRepo {
         return roleRetVal;
     }
 
+    /**
+     * The following method will read a query using Spring JDBC and return a UserModel .
+     * We'll read one of the records in user Table by id.
+     * @param id for the user to find
+     * @return a mapped UserModel
+     */
     public UserModel findUserById(long id){
 
         UserModel userRetVal = new UserModel();
-
-        String SQL_Select = "SELECT * FROM jwt.user WHERE user.id="+ id;
+        String SQL_Select = env.getProperty("sql.select.user.byId")+id;
 
         try {
 
@@ -219,18 +257,29 @@ public class RoleUserRepo {
         return  userRetVal;
     }
 
-
+    /**
+     * The following method will demonstrate how to update a query using Insert query with the help of Spring JDBC.
+     * We'll update one of the records in User Table.
+     * @param id of the user to update
+     * @param loginName new name to update
+     */
     public void updateUser(long id ,String loginName ){
 
-        String SQL_Update = "UPDATE jwt.user SET user.login = ? WHERE user.id = ?";
+        String SQL_Update = env.getProperty("sql.update.user");
         jdbcTemplate.update(SQL_Update,loginName,id);
 
     }
 
 
+    /**
+     * following method delete a query using DELETE query with the help of Spring JDBC.
+     * We'll delete one of the a records User Table.
+     * @param id from User id match with the id on user.id field  from user Table
+     */
     public  void deleteUserById(long id){
 
-        String SQL_delete = "DELETE FROM jwt.user WHERE user.id = ?";
+        //TODO print SQLexceptions on log
+        String SQL_delete = env.getProperty("sql.delete.user");
         jdbcTemplate.update(SQL_delete,id);
 
     }
