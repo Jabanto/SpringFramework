@@ -1,0 +1,40 @@
+using jwt
+
+it ist use for authorization to use particular system from server  no for authotication
+
+how it wors , an normally that it is done using session Id, send down the cookies of the browser
+on everytime the client make a request he send the session Id up to the the server ,
+ then it cheks on the memory, and says what user  has the sesion Id, and find the User and the does
+o give the authorizations for be sure that the user has access.
+But jwt instead an actions of using these cookies , he use a jason web tooken , jwt jada web transform
+to do the authorization 
+
+
+the procedure i for regular autheticaton with cookies ist very similar , but the diference more important its that 
+the server on jwt no create ai session Id on the memory of the server , nothing store on the server
+
+authetication with jwt
+
+client -- send request post /login -- the server create a jwt for the user with a secret and sen it to the broser
+
+the user send back a request to the server and the server validate the signatura and comprobe that the user 
+has no change anithin on the toke or manipulated valid the content and give the resouerce 
+
+token with algorith :HS256
+important here it is : the sub it is like the Id of the user you are atheticating
+iat on the payload: expire at or experie date to avoid another use your token ani tie
+thatn the verify signature, take the sechre to encode all your sended datra
+
+hash create a no encoding hash of 64 char , taht can e compare to validated a passord storre on the dat base of the server
+
+Why using jwt?
+
+whe store the information of the user on the browser , and no 
+on the server and can you acces to any server that has the token and
+can validate the token ofthe user, so the user it is store on the client
+, great to use on microservices to identificate the microservices 
+betwen each other
+
+
+
+
