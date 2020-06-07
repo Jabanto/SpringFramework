@@ -1,0 +1,18 @@
+language:
+  - java
+
+sudo:
+  - false
+
+jdk:
+  - oraclejdk8
+
+before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+script:
+  - mvn clean install
+
+after_success:
+  - mvn test jacoco:report coveralls:report

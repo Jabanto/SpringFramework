@@ -1,0 +1,31 @@
+Spring_05 Wie wird die Spring Business Service Facade erstellt?
+
+
+#Wie wird die Spring Business Service Facade erstellt?
+
+Die Business Logik wurde im Modul securities-management/services ausgelagert.
+Für die Autokonfiguration des Business Services werden die folgenden Starter und Abhängigkeiten benötigt.
+
+    spring-boot-starter-actuator
+
+    Dieser Starter stellt die Funktionen für das Management und Monitoring der Spring Boot Webanwendungen zu Verfügung.
+    Auf diese Funktionen kann per HTTP REST-Schnittstelle (Beispiel: http://localhost:8000/manage/health), per Java Management Extensions (JMX) oder über eine remote Shell (SSH oder Telnet) zugegriffen werden. Dazu werden allerdings weitere Starter benötigt.
+    Dieser Starter ist für das Erfassen der Metriken des Services der Wertpapierverwaltung erforderlich 
+	(Siehe auch im Kapitel über Das Erfassen der Metriken).
+    
+    spring-web
+    Diese Abhängigkeit wird benötigt, damit die Ausnahmen SecurityNotFoundException des Services mit der Annotation ResponseStatus versehen werden kann. Dadurch kann später in der Oberfläche der HTTP-Statuscode 404 gesendet werden, falls ein Wertpapier in der Datenbank nicht gefunden wird.
+
+    Der Service der Wertpapierverwaltung wird, nach dem gleichen Muster wie in meinem Beitrag Spring an einem einfachem Beispiel (Tutorial) beschrieben, erstellt. Ein Unterschied besteht nur in der Konfiguration. Im Beitrag wird die Spring-XML-Konfiguration verwendet. Für die Spring Boot Webanwendung wurde jedoch die JavaConfig gewählt.
+
+    Die Deklaration des Services erfolgt in der Konfigurationsklasse ServicesConfiguration per @ComponentScan.
+
+
+#Das Erfassen der Metriken
+
+Das Erfassen der Metriken wurde im Aspekt SecuritiesServiceMetricsAspect definiert. Der Aspekt erfasst die Daten und leitet sie an den Metrikenservice von Spring Boot Actuator weiter.
+
+Weitere Informationen dazu siehe:
+
+    Typen von Metriken: Counter, Meter, Timer, Gauge und Histogram bei Dropwizard Metrics von Coda Hale
+    Namenskonventionen von Metriken bei Matt Aimonetti

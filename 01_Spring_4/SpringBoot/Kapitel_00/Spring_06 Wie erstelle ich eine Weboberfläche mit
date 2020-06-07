@@ -1,0 +1,48 @@
+Spring_06 Wie erstelle ich eine Weboberfläche mit Spring Boot?
+
+# Wie erstelle ich eine Weboberfläche mit Spring Boot?
+
+In diesem Beispiel soll eine Weboberfläche auf der Basis von HTML5 
+mit dem CSS Framework Bootstrap von Twitter erstellt und zusätzlich 
+die JavaScript Bibliothek jQuery verwendet werden. 
+Die Oberfläche befindet sich, mit der eigentlichen Spring Boot Webanwendung, 
+im Modul securities-management/server-web.
+
+In dieser Bildergalerie werden die Masken dieses Beispiels gezeigt.
+
+
+#Der embedded Webserver (Apache Tomcat)
+
+Für eine Spring Boot Webanwendung wird ein Webserver benötigt, der die HTML Seiten ausliefert.
+Bei Spring Boot wird dieses mit einem embedded Webserver durchgeführt.
+Dazu wird der Spring Boot Starter spring-boot-starter-web benötigt, der die komplette Laufzeitumgebung mit dem Apachen Tomcat bereitstellt. Einen Deployment Descriptor web.xml muss nicht erstellt werden. Zusätzlich werden in der application.properties im Modul securities-management/server-web folgende Einträge definiert.
+
+In Zeile 11 wird beispielsweise der Standard-Port des Servers überschrieben.
+
+
+	-Wie wird die Template Engine Thymeleaf konfiguriert?
+
+Für die Autokonfiguration der Template Engine, in diesem Beispiel wird Thymeleaf verwendet, muss der Spring Boot Starter spring-boot-starter-thymeleaf verwendet werden. Da eine Abhängigkeit zum Starter spring-boot-starter-web besteht, kann dieser entfernt werden.
+
+
+In der application.properties wird das Zwischenspeichern der generierten Seiten abgeschaltet. Dieses sollte aber nur in der Entwicklungsumgebung geschehen, damit geänderte Webseiten direkt begutachtet werden können. In Produktionssystemen ist das Zwischenspeichern wieder einzuschalten.
+
+     -Wie funktioniert ein Thymeleaf-Template?
+
+Ein Template unter Thymeleaf ist eine valide HTML-Datei, die um den XML Namesraums von Thymeleaf erweitert wurde. Die Engine von Thymeleaf hält im Speicher für jedes Template einen DOM-Tree vor. Dieser Tree wird an den markierten Stellen mit dynamischen Inhalten angereichert.
+
+	- Thymeleaf unterstützt dabei eine Technik, die natural templating genannt wird. Wird ein Template direkt in den Browser geladen, so ignoriert der Browser den zusätzlichen XML Namesraum mit den Kontrollstrukturen und stellt die Webseite dar. Ein- und Ausgabefelder können im Template mit beispielhaften Werten belegt werden. Diese werden zur Laufzeit durch die dynamischen Inhalte ersetzt. Durch diese Technik ist es möglich, die Oberfläche der Spring Boot Webanwendung in Form eines klickbaren Prototypen zu erstellen. Die Webseiten können direkt im Browser angesehen werden.
+
+Die Bildergalerie des klickbaren Prototypen für dieses Beispiel wird direkt nach dem Template  security.html gezeigt.
+
+
+    #Die Masken (Oberfläche, View, UI) und die Steuerung (Controller)
+
+Durch die vollständig Integration von Thymeleaf in Spring MVC, 
+werden die Controller, wie bei Spring gewohnt, implementiert (Siehe Beitrag Spring mit einer Webanwendung mit JPA und Validierung).
+Bei der Entwicklung wurde der Architekturstil ROCA-Styles berücksichtigt. 
+Dieser Architekturstil besteht aus einer Sammlung von Empfehlungen zur Entkopplung von Server und Client.
+Diese Empfehlungen basieren auf den REST-Prinzipien für den Server und dem Prinzip von Progressive Enhancement für den Client.
+
+Weitergehende Informationen zum Thema in meinem Beitrag Spring mit einer Webanwendung mit JPA und Validierung (Tutorial).
+
