@@ -1,0 +1,18 @@
+Spring_03
+
+#Die Main Application Class
+
+Die Main Application Class ist die Startklasse einer Spring Boot Anwendung,
+welche die main()-Methode bereitstellt(provee,suministra).In diesem Beispiel 
+liegt sie im Modul securities-management/server-web
+und startet die komplette Spring Boot Webanwendung.
+
+
+#Die Konfigurationsdatei application.properties
+
+Diese Konfigurationsdatei befindet sich im Modul securities-management/server-web 
+und enthält einige wichtige Einträge.
+Elemente die mit @ geklammert sind, werden durch Werte aus den Maven-Properties ersetzt.
+
+Alternativ kann diese Konfigurationsdatei 
+auch im Format YAML (YAML Ain’t Markup Language) angelegt werden.

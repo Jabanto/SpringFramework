@@ -1,0 +1,67 @@
+Einführung_Spring_01_Teil_2
+
+Der Service eines Taschenrechners
+
+Zunächst(inicialmente) wird die Schnittstelle des Services definiert. Diese erhält vorerst zwei Methoden um Zahlen zu addieren.
+Für eine Einführung in das Spring Framework ist dieser minimale Funktionsumfang dieser Schnittstelle ausreichend.
+
+Hier die Implementierung des Services mit den ersten Prüfungen.
+
+    In der Zeile 19 und 36 wird eine Prüfung mit Mitteln Assert.notNull(summands) des Spring Frameworks durchgeführt.
+    Wenn der Summand null ist, wird die Ausnahme IllegalArgumentException mit dem angegebenen Text als Nachricht geworfen.
+
+Diese Modul wird mit einer XML basierenden Konfiguration aufgebaut.
+
+    In der Zeile 15 wird für den Taschenrechner ein Alias definiert, mit dem der Taschenrechner zusätzlich aufrufbar ist.
+
+
+Der Test mit JUnit
+
+Die JUnit Tests liegen im Source-Verzeichnis src/test mit einer identischen Paketstruktur, wie unter src/java. Im folgendem Quelltext ist ein JUnit Test für die Implementierung des Taschenrechner dargestellt.
+
+    In der Zeile 17 wird eine Annotationen für die Konfiguration verwendet, diese lädt die Datei SimpleCalculatorTest-context.xml im gleichen Verzeichnis wie die Klasse SimpleCalculatorTest.
+    Durch die Angabe der Annotation in Zeile 20 wird im Attribut calculator durch das Spring Framework eine Instanz der Implementierung des Services injiziert.
+    In der Zeile 35 wird angegeben, dass dieser Test nicht fehlschlägt, wenn die Ausnahme IllegalArgumentException geworfen wurde.
+
+
+Die folgende Konfigurationsdatei des Tests importiert nur die Konfigurationsdatei des Taschenrechners.
+
+
+Bei diesem Test wurde die Bibliothek Hamcrest verwendet. Diese Bibliothek verbessert die Ausgabe eines Fehlers.
+
+Im folgendem Beispiel wird ein Fehler mit den Standard-Anweisungen von JUnit erzeugt.
+
+Im folgendem Beispiel wird ein Fehler mit den Anweisungen von JUnit in Verbindung mit Hamcrest ausgelöst.
+
+
+Die Anwendung mit Logging
+
+Ein Anwendung, die das Ausführen des Taschenrechners ermöglicht.
+
+    Dabei wird in der Zeile 18 ein Logger mit der Simple Logging Facade for Java (SLF4J) erzeugt, der dann in den Zeilen 31 und 34 verwendet wird.
+    In der Zeile 21 wird vom Spring Framework eine Instanz des Taschenrechners in das Attribut calculator injiziert.
+
+
+ Die zugehörige XML Konfiguration. Diesmal wird das Package de.rahn.app hierarchisch nach Spring Beans gescannt (Zeile 18). Diese werden durch die Annotation @Component erkannt.
+
+
+ Der Starter, eine Konsolenanwendung, initialisiert die gesamte Anwendung (Zeile 15) und führt sie aus (Zeile 21).
+
+
+ Zum Abschluss die XML Konfiguration zum Einstieg in die Anwendung.
+
+    Diese ist im Verzeichnis META-INF/spring abgelegt und verweist in den Zeilen 15 und 16 auf die eigentlichen Module.
+
+
+Bei anderen Arten von Anwendungen ändert sich der Name der XML Konfigurationsdatei, wie z. B. bei Webanwendungen in context-web.xml. So können mehrere von diesen Konfigurationen parallel nebeneinander liegen. Zusätzlich werden in diesem Verzeichnis allgemeine technische Konfigurationen, wie z. B. Datenbankinformationen, die von mehreren Modulen verwendet werden, abgelegt. Dadurch kann ein hoher Grad an Wiederverwendung erreicht werden.
+
+Zum Abschluss das resultierende Klassendiagramm (UML) zu diesem Beispiel.
+
+
+Der Quellcode und Download des Beispiels
+
+Quellcode ansehen bei GitHub:
+Spring an einem einfachem Beispiel
+
+Download einer ZIP-Datei von GitHub:
+Spring an einem einfachem Beispiel

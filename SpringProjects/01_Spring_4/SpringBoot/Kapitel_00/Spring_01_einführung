@@ -1,0 +1,67 @@
+Hallo
+Wilkommen zum ersten video des Spring Boot Kurs/es.
+in diesem video soll es hauptsächlich darum gehen
+was wir machen werden und welche Komponente 
+von Spring Boot wir verwenden.
+
+Aber vorab. was müsst ihr egentlich wissen 
+um diesen Kurs verstehen zu können 
+
+//
+und die antwort darauf ist leider : Gute Java Kenntnisse ,
+außerdem solltet ihr etwas von JPA und Hibernate schon verstehen.
+
+Aber keine panik , Zum Glück , gibt es tausende sehr gute Video Anleitungen in Youtube, die ihr euch anschauen könnt und naturlich gibt es noch mehr Möglichkeiten im Internet.
+
+Hier in der Bescheibung teile ich euch ein Paar links 
+zu allen Java Anfänger Tutorials, die ich gefunden habe
+und meiner Meinung nach dafür gut sind.
+
+sooo kommen wir zum Hauptthema 
+
+Was werden wir machen ? 
+
+In dieser Tutorial-Serie
+werde ich euch Schritt für Schritt die Basics
+von Spring Boot erklären.
+
+Dazu zeige ich euch in den folgenden Videos ein Beispiel
+mit einer Spring Boot Webanwendung.
+Diese Webanwendung ist eine einfache Wertpapierverwaltung 
+mit Datenbankzugriffen auf Basis von Spring Boot.
+
+Zuerst schauen wir kurz, welche Spring-Komponenten 
+wir in diesem Projekt nutzen (werden).
+
+So, in diesem Beispiel, werden wir die folgenden Komponenten einsetzen.
+
+1#Spring Boot für die Autokonfiguration und das Self-Containment.
+2#Spring Data JPA mit Hibernate ORM und eine integrierte
+Datebank H2	
+3# Spring MVC für die Steuerung der Oberflächen
+4# Thymeleaf als HTML5 Template Engine mit dem CSS Framework Bootstrap.//
+	#Alle javascript Komponenten von Bootstrap basieren
+	auf der JavaScript Bibiothek Jquery
+	#und die vorlezte wichtige Komponente, als embedded 
+	Webserver wird der Apache Tomcat verwendet.
+
+5# und naturlich wird Spring Framework version 5 als Basis eingesetzt.
+  -->/und Als Basis verwenden wir SF V5
+
+#Weitergehende Information und Tutorials zum Thema Spring mit JPA udn Hibernate
+	 werde ich in andere Tutorials erweitern.
+
+
+wie ihr gemerkt hat , Deutsch ist nicht meine Muttersprache aber ich werde versuchen, 
+euch alles gut zu erklären und ich hoffe, dass es in folgenden Videos besser wird.
+
+und warum erzähle ich euch das jetzt?
+ganz einfach: ich will mein Wissen in Spring mit euch teilen
+						 					 euch vermitteln.
+
+und auch so geile Programme entwickeln könnt wie viele vor euch.
+
+in diesem Siene: 
+ haut rein bis zum nächsten Video und lasst es euch gut gehen , ciao
+
+
