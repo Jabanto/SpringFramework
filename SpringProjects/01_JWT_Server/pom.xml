@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jabanto.spring.</groupId>
-	<artifactId>JWT_Server</artifactId>
+	<artifactId>01_JWT_Server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>JWT_Server</name>
+	<name>01_JWT_Server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

@@ -5,6 +5,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>01_JWT_Server</module>
+		<module>02_SQLite-db-sample</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
