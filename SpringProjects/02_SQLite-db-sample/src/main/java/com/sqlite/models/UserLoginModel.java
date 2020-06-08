@@ -1,7 +1,5 @@
 package com.sqlite.models;
 
-
-
 public class UserLoginModel {
 
 	private Integer id;

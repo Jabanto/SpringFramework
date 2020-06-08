@@ -8,19 +8,21 @@ import org.springframework.context.ApplicationContext;
 import com.sqlite.models.LoginModel;
 import com.sqlite.service.IUserService;
 
+import java.util.Arrays;
+
 @SpringBootApplication
 public class SampleSqliteApplication {
 	
     	public static void main(String[] args) {
     	  ApplicationContext ctx = 
 	  		SpringApplication.run(SampleSqliteApplication.class, args);
-	  		/*String[] beanNames = ctx.getBeanDefinitionNames();
+	  		String[] beanNames = ctx.getBeanDefinitionNames();
 	  		    Arrays.sort(beanNames);
 	  		    System.out.println("***********************");
 	  		    for (String beanName : beanNames) {
 	  		        System.out.println(beanName);
 	  		    }
-	  		    System.out.println("***********************");*/
+	  		    System.out.println("***********************");
     	  
     	  IUserService userService = 
     		  ctx.getBean("userService", IUserService.class);

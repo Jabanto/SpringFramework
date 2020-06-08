@@ -8,7 +8,18 @@ import org.hibernate.dialect.function.StandardSQLFunction;
 import org.hibernate.dialect.function.VarArgsSQLFunction;
 import org.hibernate.type.StringType;
 
+/**
+ * The sqlite dependecy give us what we need to use JDBC to communicate with SQLite, but in this case we user
+ * an ORM , and it's not enough with the dependency, Cuz Hibernate doesn't ship with a Dialect for SQllite
+ * we need to define one ourselves creating a SQLiteDialect that extends form org.hibernate.dialect
+ * and override some default Dialect behaviors
+ *
+ */
 public class SQLiteDialect extends Dialect {
+
+    /**
+     * Here we register the data types provide by SQLite, that we need for the project
+     */
     public SQLiteDialect() {
         registerColumnType(Types.BIT, "integer");
         registerColumnType(Types.TINYINT, "tinyint");
@@ -40,6 +51,11 @@ public class SQLiteDialect extends Dialect {
         registerFunction( "substring", new StandardSQLFunction( "substr", StringType.INSTANCE) );
     }
 
+    /**
+     * We need to tell Hibernate how SQLite handles @id Colums , we cann do this to with a custom IdentityColumnSupport implementation
+     * but here we override the method
+     * @return true to suppot Identity Columns
+     */
     public boolean supportsIdentityColumns() {
         return true;
     }
@@ -111,10 +127,20 @@ public class SQLiteDialect extends Dialect {
         return true;
     }
 
+    /**
+     * SQLite doen't have supoort for the database constrains(Limit of type of data for table),
+     * for that reason whe need to disable this method
+     * @return false
+     */
     public boolean hasAlterTable() {
         return false; // As specify in NHibernate dialect
     }
 
+    /**
+     * SQLite doen't have supoort for the database constrains(Limit of type of data for table),
+     * for that reason whe need to disable this method
+     * @return false
+     */
     public boolean dropConstraints() {
         return false;
     }

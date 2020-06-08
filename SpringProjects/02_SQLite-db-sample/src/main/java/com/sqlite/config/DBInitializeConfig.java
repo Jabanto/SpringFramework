@@ -15,7 +15,10 @@ public class DBInitializeConfig {
 
 	@Autowired
 	private DataSource dataSource;
-	
+
+	/**
+	 * Here we define that the data base will delete and recreate every time that the application start
+	 */
 	@PostConstruct
 	public void initialize(){
 		try {

@@ -21,13 +21,13 @@ public class UserService implements IUserService {
 	    UserLoginModel model=new UserLoginModel();
 	    UserLogin user=userDao.findUserLoginByUserNameAndPassword(loginModel.getUserName(), loginModel.getPassword());
 	    if (user !=null) {
-		model.setEmail(user.getEmail());
-		model.setFirstName(user.getFirstName());
-		model.setId(user.getId());
-		model.setLastName(user.getLastName());
-		model.setMobile(user.getPassword());
-		model.setPassword(user.getPassword());
-		model.setUserName(user.getUserName());
+			model.setEmail(user.getEmail());
+			model.setFirstName(user.getFirstName());
+			model.setId(user.getId());
+			model.setLastName(user.getLastName());
+			model.setMobile(user.getPassword());
+			model.setPassword(user.getPassword());
+			model.setUserName(user.getUserName());
 	    }
 	    return model;
 	}
