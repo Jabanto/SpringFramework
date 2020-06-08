@@ -1,4 +1,4 @@
-package com.jabanto.spring.SpringMVc.Model;
+package com.jabanto.spring.jwt.Model;
 
 /**
  * Structure of the response when the authentication /login method is validate

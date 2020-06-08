@@ -1,4 +1,4 @@
-package com.jabanto.spring.SpringMVc.Model;
+package com.jabanto.spring.jwt.Model;
 
 public class Privilege {
 

@@ -1,9 +1,9 @@
-package com.jabanto.spring.SpringMVc.Service;
+package com.jabanto.spring.jwt.Service;
 
-import com.jabanto.spring.SpringMVc.Model.Privilege;
-import com.jabanto.spring.SpringMVc.Model.Role;
-import com.jabanto.spring.SpringMVc.Model.UserModel;
-import com.jabanto.spring.SpringMVc.Repository.RoleUserRepo;
+import com.jabanto.spring.jwt.Model.Privilege;
+import com.jabanto.spring.jwt.Model.Role;
+import com.jabanto.spring.jwt.Model.UserModel;
+import com.jabanto.spring.jwt.Repository.RoleUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

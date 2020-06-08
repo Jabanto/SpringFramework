@@ -1,8 +1,8 @@
-package com.jabanto.spring.SpringMVc.Config;
+package com.jabanto.spring.jwt.Config;
 
 
-import com.jabanto.spring.SpringMVc.Filter.JwtRequestFilter;
-import com.jabanto.spring.SpringMVc.Service.MyUserDetailsService;
+import com.jabanto.spring.jwt.Filter.JwtRequestFilter;
+import com.jabanto.spring.jwt.Service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,7 +22,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private MyUserDetailsService myUserDetailService;
-
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;

@@ -1,4 +1,4 @@
-package com.jabanto.spring.SpringMVc.Model;
+package com.jabanto.spring.jwt.Model;
 
 /**
  * We define a class to define the structure if the input arguments for the login(authenticate) method

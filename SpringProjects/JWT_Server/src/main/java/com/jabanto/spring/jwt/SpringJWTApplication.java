@@ -1,6 +1,6 @@
-package com.jabanto.spring.SpringMVc;
+package com.jabanto.spring.jwt;
 
-import com.jabanto.spring.SpringMVc.Repository.RoleUserRepo;
+import com.jabanto.spring.jwt.Repository.RoleUserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

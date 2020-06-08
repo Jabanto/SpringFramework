@@ -1,7 +1,7 @@
-package com.jabanto.spring.SpringMVc.Filter;
+package com.jabanto.spring.jwt.Filter;
 
-import com.jabanto.spring.SpringMVc.Service.MyUserDetailsService;
-import com.jabanto.spring.SpringMVc.Service.JwtUtilService;
+import com.jabanto.spring.jwt.Service.MyUserDetailsService;
+import com.jabanto.spring.jwt.Service.JwtUtilService;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

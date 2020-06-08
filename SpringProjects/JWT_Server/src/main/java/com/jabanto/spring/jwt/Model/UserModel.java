@@ -1,9 +1,4 @@
-package com.jabanto.spring.SpringMVc.Model;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
+package com.jabanto.spring.jwt.Model;
 
 public class UserModel {
 

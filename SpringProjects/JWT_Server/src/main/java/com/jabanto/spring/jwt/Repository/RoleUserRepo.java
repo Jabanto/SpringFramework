@@ -1,22 +1,19 @@
-package com.jabanto.spring.SpringMVc.Repository;
+package com.jabanto.spring.jwt.Repository;
 
-import com.jabanto.spring.SpringMVc.Model.Role;
-import com.jabanto.spring.SpringMVc.Model.UserModel;
-import com.jabanto.spring.SpringMVc.SpringJWTApplication;
+import com.jabanto.spring.jwt.Model.Role;
+import com.jabanto.spring.jwt.Model.UserModel;
+import com.jabanto.spring.jwt.SpringJWTApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ParameterizedPreparedStatementSetter;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 import java.util.List;
 

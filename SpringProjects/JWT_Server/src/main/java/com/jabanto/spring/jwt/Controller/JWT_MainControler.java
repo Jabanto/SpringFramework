@@ -1,11 +1,11 @@
-package com.jabanto.spring.SpringMVc.Controller;
+package com.jabanto.spring.jwt.Controller;
 
-import com.jabanto.spring.SpringMVc.Model.AuthenticationRequest;
-import com.jabanto.spring.SpringMVc.Model.AuthenticationResponse;
-import com.jabanto.spring.SpringMVc.Model.UserModel;
-import com.jabanto.spring.SpringMVc.Repository.RoleUserRepo;
-import com.jabanto.spring.SpringMVc.Service.MyUserDetailsService;
-import com.jabanto.spring.SpringMVc.Service.JwtUtilService;
+import com.jabanto.spring.jwt.Model.AuthenticationRequest;
+import com.jabanto.spring.jwt.Model.AuthenticationResponse;
+import com.jabanto.spring.jwt.Model.UserModel;
+import com.jabanto.spring.jwt.Repository.RoleUserRepo;
+import com.jabanto.spring.jwt.Service.MyUserDetailsService;
+import com.jabanto.spring.jwt.Service.JwtUtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -99,7 +99,7 @@ public class JWT_MainControler {
     @DeleteMapping("/user/{id}")
     public String deleteUser(@PathVariable("id") Long id){
         roleUserRepo.deleteUserById(id);
-        return "User with Id :" + id  +" was deleted from DB";
+        return "User with Id: " + id  +" was deleted from DB";
     }
 
 
